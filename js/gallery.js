@@ -45,19 +45,30 @@ const images = [
   description: 'Lighthouse Coast Sea',
 },
 ];
-console.log(images);
 const container = document.querySelector(".gallery");
-container.insertAdjacentHTML("beforeend", createGallery(images))
+console.log(container);
+container.insertAdjacentHTML("beforeend", creareGallery(images));
 
-function createGallery(arr) {
+function creareGallery(arr) {
   return arr.map(item => `
-    <li class="gallery-item">
-      <a class="gallery-link" href="${item.original}">
-        <img class="gallery-image"
-          src="${item.preview}"
-          data-source="${item.original}"
-          alt="${itdm.description}>
-      </a>
-    </li>
-  `).join("") }
-  console.log(createGallery(images));
+  <li class="gallery-item">
+  <a class="gallery-link" href="${item.original}">
+    <img
+      class="gallery-image"
+      src="${item.preview}"
+      data-source="${item.original}"
+      alt="${item.description}"
+      width=320
+    />
+  </a>
+</li>
+
+  `).join("")
+}
+const galleryLinks = document.querySelector(".gallery-link");
+galleryLinks.forEach(link =>{
+  link.addEventListener('click', (event)=>{event.preventDefault()
+})})
+
+
+
