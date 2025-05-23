@@ -46,8 +46,13 @@ const images = [
 },
 ];
 const container = document.querySelector(".gallery");
+const galleryLinks = document.querySelectorAll(".gallery-link");
+
 console.log(container);
+
 container.insertAdjacentHTML("beforeend", creareGallery(images));
+
+container.addEventListener("click", handleClick);
 
 function creareGallery(arr) {
   return arr.map(item => `
@@ -62,13 +67,17 @@ function creareGallery(arr) {
     />
   </a>
 </li>
-
   `).join("")
 }
-const galleryLinks = document.querySelector(".gallery-link");
-galleryLinks.forEach(link =>{
-  link.addEventListener('click', (event)=>{event.preventDefault()
-})})
+function handleClick(event) {
+  event.preventDefault();
+  
+  const imgOriginal = event.target.dataset.source;
 
-
-
+  const instance = basicLightbox.create(`
+	<div class ="modal">
+	  <img src="${imgOriginal}" />
+	</div>
+`)
+instance.show();
+}

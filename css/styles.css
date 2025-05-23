@@ -1,46 +1,46 @@
 .gallery {
-    display: grid; /* Перетворюємо ul на Grid-контейнер */
-    grid-template-columns: repeat(3, 1fr); /* 3 стовпці однакової ширини */
-    gap: 15px; /* Відстань між елементами сітки */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; 
     background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Додаємо внутрішній відступ для краси */
+    padding: 20px;
 }
 .gallery-item{
-    list-style: none; /* Видаляємо маркери списку */
-    padding: 0;      /* Видаляємо внутрішній відступ за замовчуванням */
-    margin: 0 auto;  /* Центруємо список */
-    max-width: 900px; /* Максимальна ширина галереї */}
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;  
+    max-width: 900px;}
 .gallery li {
-    /* li тепер є елементом Grid, і його розмір контролюється Grid */
-    overflow: hidden; /* Обрізаємо все, що виходить за межі li */
+    overflow: hidden; 
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .gallery img {
-    width: 100%; /* Зображення займає всю ширину li */
-    height: 200px; /* Фіксована висота для однорідності */
-    object-fit: cover; /* Обрізаємо зображення, щоб воно заповнило li, зберігаючи пропорції */
-    display: block; /* Забезпечуємо, що зображення не має зайвих відступів */
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover;
+    display: block;
 }
 
 .gallery li:hover {
-    transform: scale(1.03); /* Збільшуємо li при наведенні */
+    transform: scale(1.03);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
-
-/* --- Адаптивність для Grid --- */
+.modal img{
+    width: 100%;
+}
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 стовпці на планшетах */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: 1fr; /* 1 стовпець на мобільних пристроях */
+        grid-template-columns: 1fr;
     }
 }
