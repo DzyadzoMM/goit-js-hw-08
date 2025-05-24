@@ -46,15 +46,13 @@ const images = [
 },
 ];
 const container = document.querySelector(".gallery");
-const galleryLinks = document.querySelectorAll(".gallery-link");
 
-console.log(container);
 
-container.insertAdjacentHTML("beforeend", creareGallery(images));
+container.insertAdjacentHTML("beforeend", createGallery(images));
 
 container.addEventListener("click", handleClick);
 
-function creareGallery(arr) {
+function createGallery(arr) {
   return arr.map(item => `
   <li class="gallery-item">
   <a class="gallery-link" href="${item.original}">
@@ -71,7 +69,9 @@ function creareGallery(arr) {
 }
 function handleClick(event) {
   event.preventDefault();
-  
+  if (event.currentTarget===event.target) {
+  return;
+  }
   const imgOriginal = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
